@@ -41,7 +41,7 @@ def reset_world():
     frame = 0
     action = 3
 
-    points = [(100, 900),(1200, 800),(500, 100)]
+    points = []
     set_new_target_arrow()
 
 
@@ -87,6 +87,8 @@ def update_world():
             cx, cy = hx, hy
             del points[0]
             set_new_target_arrow()
+    elif points:
+        set_new_target_arrow()
 
 
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
