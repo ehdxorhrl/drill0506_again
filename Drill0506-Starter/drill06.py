@@ -46,7 +46,7 @@ def set_new_target_arrow():
     global sx, sy, hx, hy, t, action, frame
     sx, sy = cx, cy  # 시작점
     # hx, hy = TUK_WIDTH - 50,  TUK_HEIGHT - 50
-    hx, hy = random.randint(0, TUK_WIDTH), random.randint(0, TUK_HEIGHT)
+    hx, hy = points[0]
     t = 0.0
     action = 1 if cx < hx else 0
     frame = 0
@@ -66,17 +66,16 @@ def update_world():
     global frame
     global cx, cy
     global t
-    global sx, sy
 
     frame = (frame + 1) % 8
 
-    # if t <= 1.0:
-    #     cx = (1 - t) * sx + t*hx
-    #     cy = (1 - t) * sy + t*hy
-    #     t += 0.001
-    # else:
-    #     cx, cy =  hx, hy
-    #     set_new_target_arrow()
+    if t <= 1.0:
+        cx = (1 - t) * sx + t*hx
+        cy = (1 - t) * sy + t*hy
+        t += 0.001
+    else:
+        cx, cy =  hx, hy
+        set_new_target_arrow()
 
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 hide_cursor()
