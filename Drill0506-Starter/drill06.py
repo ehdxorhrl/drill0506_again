@@ -1,9 +1,9 @@
 from pico2d import *
 
-
 import random
 
 TUK_WIDTH, TUK_HEIGHT = 1280, 1024
+
 
 def load_resources():
     global TUK_ground, character, arrow
@@ -60,6 +60,7 @@ def set_new_target_arrow():
         action = 3 if action == 1 else 2
         frame = 0
         target_exists = False
+
 
 def render_word():
     clear_canvas()
